@@ -19,6 +19,8 @@ public class Music {
 
 	private Long playTime;
 
+	private String genURL;
+	
 	private String sourceURL;
 
 	private String artist;
@@ -27,10 +29,11 @@ public class Music {
 
 	private String description;
 
-	private List<String> genres;
+	@DBRef
+	private List<Genre> genres;
 
 	@DBRef
-	private List<BulletTag> bulletTags;
+	private List<BulletComment> bulletTags;
 
 	private Long playCount;
 
@@ -61,7 +64,7 @@ public class Music {
 		return sourceURL;
 	}
 
-	public List<String> getGenres() {
+	public List<Genre> getGenres() {
 		return genres;
 	}
 
@@ -73,7 +76,7 @@ public class Music {
 		return artist;
 	}
 
-	public List<BulletTag> getBulletTags() {
+	public List<BulletComment> getBulletTags() {
 		return bulletTags;
 	}
 
@@ -109,11 +112,11 @@ public class Music {
 		this.description = description;
 	}
 
-	public void setGenres(List<String> genres) {
+	public void setGenres(List<Genre> genres) {
 		this.genres = genres;
 	}
 
-	public void setBulletTags(List<BulletTag> bulletTags) {
+	public void setBulletTags(List<BulletComment> bulletTags) {
 		this.bulletTags = bulletTags;
 	}
 
