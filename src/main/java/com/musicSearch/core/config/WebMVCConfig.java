@@ -6,8 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-
-import com.musicSearch.core.Music.Music;
+import com.musicSearch.core.model.Music;
 
 @EnableWebMvc
 @ComponentScan(basePackageClasses = Music.class)

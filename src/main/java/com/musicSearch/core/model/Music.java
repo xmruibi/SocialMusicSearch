@@ -1,4 +1,4 @@
-package com.musicSearch.core.Music;
+package com.musicSearch.core.model;
 
 import java.sql.Date;
 
@@ -18,4 +18,7 @@ public class Music {
 	
 	private String artist;
 
+	private String description;
+	
+	
 }
