@@ -10,17 +10,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import com.mongodb.Mongo;
 
 @Configuration
-@EnableMongoRepositories
 public class ApplicationConfig {
-	@Bean
-	public MongoTemplate mongoTemplate() throws UnknownHostException {
-		String host = "";
-		String port = "";
-		String username = "";
-		String password = "";
-		Mongo mongo = new Mongo() {
-		}; 
-		
-		return null;
-	}
+	
 }
