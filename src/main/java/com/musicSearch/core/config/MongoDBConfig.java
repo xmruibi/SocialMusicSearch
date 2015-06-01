@@ -37,6 +37,6 @@ public class MongoDBConfig extends AbstractMongoConfiguration {
 	@Override
 	protected String getMappingBasePackage() {
 		// TODO Auto-generated method stub
-		return "";
+		return "com.musicSearch.core.domain";
 	}
 }
