@@ -1,8 +1,8 @@
-package com.musicSearch.core.model;
+package com.musicSearch.core.domain;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="music")
+@Document(collection="bulletTag")
 public class BulletTag {
 
 }

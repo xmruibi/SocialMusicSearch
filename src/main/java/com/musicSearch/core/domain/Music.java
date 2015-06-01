@@ -1,4 +1,4 @@
-package com.musicSearch.core.model;
+package com.musicSearch.core.domain;
 
 import java.sql.Date;
 
