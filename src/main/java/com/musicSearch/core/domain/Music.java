@@ -4,13 +4,17 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "music")
 public class Music {
 	@Id
+	@Indexed(unique = true) 
 	private String id;
 
+	@Indexed 
 	private String title;
 
 	private Long playTime;
@@ -25,6 +29,7 @@ public class Music {
 
 	private List<String> genres;
 
+	@DBRef
 	private List<BulletTag> bulletTags;
 
 	private Long playCount;

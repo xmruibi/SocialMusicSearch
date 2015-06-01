@@ -20,6 +20,7 @@ public interface MusicRepository extends MongoRepository<Music, String> {
 	@Query("{'artist' : {$regex : ?0}}")
 	List<Music> findByArtist(String artist);
 	
+	@Query("{''}")
 	List<Music> findByBulletTags(String bullettagName);
 	
 	@Query("{'releaseDate' : {$lt : ?0}}")

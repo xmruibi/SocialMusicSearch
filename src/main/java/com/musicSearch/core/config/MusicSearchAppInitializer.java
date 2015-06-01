@@ -14,12 +14,12 @@ public class MusicSearchAppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
-		webApplicationContext.register(ApplicationConfig.class,
-				WebMVCConfig.class, MongoDBConfig.class);
+		webApplicationContext.register( MongoDBConfig.class,ApplicationConfig.class,
+				WebMVCConfig.class);
 
 		Dynamic dynamc = servletContext.addServlet("dispatcherServlet",
 				new DispatcherServlet(webApplicationContext));
-		dynamc.addMapping("/api/v1/*");
+		dynamc.addMapping("/api/*");
 		dynamc.setLoadOnStartup(1);
 	}
 

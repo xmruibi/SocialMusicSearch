@@ -9,7 +9,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.musicSearch.core.domain.Music;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = Music.class)
 @Configuration
 public class WebMVCConfig {
 
