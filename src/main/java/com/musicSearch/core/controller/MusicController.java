@@ -52,6 +52,8 @@ public class MusicController {
 	public List<Music> findAllMusic() {
 		return musicService.findAllMusic();
 	}
+	 
+
 	
 	 @ResponseStatus( value = HttpStatus.BAD_REQUEST )
 	 public class BadRequestException extends RuntimeException{
