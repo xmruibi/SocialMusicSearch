@@ -10,7 +10,12 @@ public class CrawlerRunner {
     public static void main(String[] args) {
     
         try {
-            MP3Crawler crawler = new MP3Crawler("http://cn.last.fm", "http://cn.last.fm/music/+free-music-downloads");
+        	MusicCrawler.setDomain("http://www.last.fm");
+            MusicCrawler crawler = new MusicCrawler("http://www.last.fm/music/+free-music-downloads");
+            crawler.backtracking(1);
+//            crawler.backupToFile("links.txt");
+            crawler.crawlMusic();
+            System.out.println(crawler.musicList);
         } catch (IOException ex) {
 //            Logger.getLogger(CrawlerRunner.class.getName()).log(Level.SEVERE, null, ex);
             ex.printStackTrace();

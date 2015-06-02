@@ -44,6 +44,14 @@ public class Music {
 		this.sourceURL = sourceURL;
 	}
 	
+	
+	public Music(String title, String sourceURL){
+		this.id = sourceURL.hashCode() + "";
+		this.title = title;
+		this.sourceURL = sourceURL;
+	}
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -122,5 +130,9 @@ public class Music {
 
 	public void setPlayCount(Long playCount) {
 		this.playCount = playCount;
+	}
+	
+	public String toString() {
+		return id + " -> " + title + "(" + sourceURL + ")"; 
 	}
 }
