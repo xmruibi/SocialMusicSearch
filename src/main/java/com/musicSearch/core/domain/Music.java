@@ -1,6 +1,6 @@
 package com.musicSearch.core.domain;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -13,14 +13,13 @@ public class Music {
 	@Id
 	private String id;
 
-	@Indexed 
+	@Indexed
 	private String title;
 
 	private Long playTime;
 
-	@Indexed(unique = true) 
 	private String genURL;
-	
+
 	private String sourceURL;
 
 	private String artist;
@@ -37,13 +36,18 @@ public class Music {
 
 	private Long playCount;
 
-	
-	public Music(String id, String title, String sourceURL){
-		this.id = id;
+	// public Music(String id, String title, String sourceURL){
+	// this.id = id;
+	// this.title = title;
+	// this.sourceURL = sourceURL;
+	// }
+
+	public Music(String title, String sourceURL) {
+		this.id = sourceURL.hashCode() + "";
 		this.title = title;
 		this.sourceURL = sourceURL;
 	}
-	
+
 	public String getId() {
 		return id;
 	}
@@ -122,5 +126,9 @@ public class Music {
 
 	public void setPlayCount(Long playCount) {
 		this.playCount = playCount;
+	}
+
+	public String toString() {
+		return id + " -> " + title + "(" + sourceURL + ")";
 	}
 }
