@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "music")
 public class Music {
 	@Id
-	@Indexed(unique = true) 
 	private String id;
 
 	@Indexed 
@@ -19,6 +18,7 @@ public class Music {
 
 	private Long playTime;
 
+	@Indexed(unique = true) 
 	private String genURL;
 	
 	private String sourceURL;

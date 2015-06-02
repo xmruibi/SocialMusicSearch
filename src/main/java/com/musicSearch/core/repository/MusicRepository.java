@@ -23,4 +23,5 @@ public interface MusicRepository extends MongoRepository<Music, String> {
 	
 	@Query("{'releaseDate' : {$gt : ?0}}")
 	List<Music> findByReleaseDate(Date releasedate);
+	
 }
