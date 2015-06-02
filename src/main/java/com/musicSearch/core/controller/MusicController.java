@@ -21,7 +21,7 @@ import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.service.MusicService;
 
 @RestController
-@RequestMapping("/api/music")
+@RequestMapping("/musics")
 public class MusicController {
 	private static Logger LOGGER = Logger.getLogger(MusicController.class);
 
@@ -53,8 +53,12 @@ public class MusicController {
 		return musicService.findAllMusic();
 	}
 	
-	@ExceptionHandler
-	@ResponseStatus(HttpStatus.NOT_FOUND)
-	public void handleMusicNotFound(MongoCursorNotFoundException ex) {
-	}
+	 @ResponseStatus( value = HttpStatus.BAD_REQUEST )
+	 public class BadRequestException extends RuntimeException{
+	    //
+	 }
+	 @ResponseStatus( value = HttpStatus.NOT_FOUND )
+	 public class ResourceNotFoundException extends RuntimeException{
+	    //
+	 }
 }

@@ -19,7 +19,7 @@ public class MusicSearchAppInitializer implements WebApplicationInitializer {
 
 		Dynamic dynamc = servletContext.addServlet("dispatcherServlet",
 				new DispatcherServlet(webApplicationContext));
-		dynamc.addMapping("/api/*");
+		dynamc.addMapping("/*");
 		dynamc.setLoadOnStartup(1);
 	}
 

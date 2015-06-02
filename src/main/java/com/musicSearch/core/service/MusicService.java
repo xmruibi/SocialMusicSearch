@@ -2,9 +2,7 @@ package com.musicSearch.core.service;
 
 import java.util.List;
 
-import org.neo4j.cypher.internal.compiler.v2_0.untilMatched;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.solr.core.query.UpdateAction;
 import org.springframework.stereotype.Service;
 
 import com.musicSearch.core.domain.Music;
