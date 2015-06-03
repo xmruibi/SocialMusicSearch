@@ -8,6 +8,8 @@ import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.client.Client;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -20,11 +22,13 @@ public class MusicIndexingService {
 	private final static Logger logger = Logger
 			.getLogger(MusicIndexingService.class);
 
-	private Client client;
+	@Autowired	
+	private Client client ;
+	
 	private ObjectMapper mapper = new ObjectMapper();
 
+	// experiment_1
 	public void bulkIndex(List<IndexedMusic> musicCollection) {
-
 		logger.info("Indexing bulk request of " + musicCollection.size()
 				+ " documents");
 		BulkRequestBuilder bulkRequest = client.prepareBulk();
@@ -35,14 +39,16 @@ public class MusicIndexingService {
 			} catch (JsonProcessingException e) {
 				throw new RuntimeException(e);
 			}
-			bulkRequest.add(client.prepareIndex("contributions", "year2012",
+			bulkRequest.add(client.prepareIndex("musics", "music",
 					UUID.randomUUID().toString()).setSource(json));
 		}
 		BulkResponse response = bulkRequest.execute().actionGet();
 		if (response.hasFailures()) {
 			throw new RuntimeException(
 					"there was an error indexing the bulk request of "
-							+ musicCollection.size() + " documents");
+							+ musicCollection.size() + " documents: " +response.buildFailureMessage());
 		}
 	}
+	
+
 }
