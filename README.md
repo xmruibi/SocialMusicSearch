@@ -1,5 +1,5 @@
 # CollaborativeMusicSearch
-This is innovative thinking on music search engine with collaborative dynamic bullet comments techniques. The basic idea is using bullet comments to generate music profile.  
+This is innovative thinking on music search engine with collaborative dynamic bullet comments techniques. The basic idea is using bullet comments to generate music profile. According to these profiles, we can build better ranking during search with some retrieval algorithms. 
 
 ### Potential Techniques
 Based on Spring-Boot App with Spring-Data-MongoDB&ElasticSearch&RESTful Service. 
