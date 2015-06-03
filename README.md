@@ -1,12 +1,12 @@
 # CollaborativeMusicSearch
-This is innovative thinking on music search engine with collaborative dynamic tagging techniques. 
+This is innovative thinking on music search engine with collaborative dynamic bullet comments techniques. The basic idea is using bullet comments to generate music profile.  
 
 ### Potential Techniques
-Based on SpringMVC &amp; MongoDB RESTful Service with AngularJS. 
+Based on Spring-Boot App with Spring-Data-MongoDB&ElasticSearch&RESTful Service. 
 
-### Iteration #1 -- May 27th - Jun 5th, 2015
+### Iteration #1 -- May 27th - Jun 4th, 2015
 
-#### Data Crawler - source come from MP3.com
+#### Data Crawler - source come from last.fm
 
 Music Metadata - Store in MongoDB which is on AWS EC2;
 
@@ -17,13 +17,28 @@ Music .mp3 file - Store in AWS S3;
 
 #### Framework Set Up:
 
-Spring 4 - with Java Class Configuration;
+Spring Boot - Web Service;
 
-Maven archtype;
+Spring-Data-MongoDB repository, domain;
 
-Spring Boot - RESTful Service;
+Spring-Data-REST service, controller;
 
-Spring-Data - MongoDB repository, model;
+Spring-Data-ElasticSearch indexedrepository, index.domain
+
+### Dataflow:
+
+In: 
+
+    Crawler -> Music Info -> MongoDB 
+            -> Music Sourcce ->  AWS S3 
+            -> Music Comment -> ElasticSearch Indexing 
+
+Out:
+
+    Basic CRUD -> MongoDB repository
+    Basic Retrieval -> MongoDB repository
+    Advanced Retrieval -> ElasticSearch Index -> TFIDF ranking/customized ranking algorithms -> Music ID -> Search in MongoDB 
+    
 
 
 
