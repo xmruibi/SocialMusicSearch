@@ -9,30 +9,6 @@ import com.musicSearch.core.domain.BulletComment;
 import com.musicSearch.core.domain.Genre;
 
 public interface FieldGrabber {
-	/*
-	 * 	private String title;
-
-		private Long playTime;
-	
-		private String genURL;
-	
-		private String sourceURL;
-	
-		private String artist;
-	
-		private Date releaseDate;
-	
-		private String description;
-	
-		@DBRef
-		private List<Genre> genres;
-	
-		@DBRef
-		private List<BulletComment> bulletTags;
-	
-		private Long playCount;
-	 * 
-	 * */
 	
 	public String grabTitle();
 	

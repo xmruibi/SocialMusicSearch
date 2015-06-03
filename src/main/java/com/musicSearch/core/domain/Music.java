@@ -32,7 +32,7 @@ public class Music {
 	private List<Genre> genres;
 
 	@DBRef
-	private List<BulletComment> bulletTags;
+	private List<BulletComment> bulletComments;
 
 	
 	private List<String> originTags;
@@ -83,8 +83,8 @@ public class Music {
 		return artist;
 	}
 
-	public List<BulletComment> getBulletTags() {
-		return bulletTags;
+	public List<BulletComment> getBulletComments() {
+		return bulletComments;
 	}
 
 	public String getDescription() {
@@ -128,8 +128,8 @@ public class Music {
 		this.genres = genres;
 	}
 
-	public void setBulletTags(List<BulletComment> bulletTags) {
-		this.bulletTags = bulletTags;
+	public void setBulletComments(List<BulletComment> bulletComments) {
+		this.bulletComments = bulletComments;
 	}
 
 	public void setPlayCount(Long playCount) {
