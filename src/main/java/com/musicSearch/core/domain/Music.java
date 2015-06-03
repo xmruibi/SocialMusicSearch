@@ -131,4 +131,12 @@ public class Music {
 	public String toString() {
 		return id + " -> " + title + "(" + sourceURL + ")";
 	}
+
+	public String getGenURL() {
+		return genURL;
+	}
+
+	public void setGenURL(String genURL) {
+		this.genURL = genURL;
+	}
 }
