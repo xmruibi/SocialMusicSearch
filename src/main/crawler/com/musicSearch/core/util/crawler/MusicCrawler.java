@@ -108,14 +108,14 @@ public class MusicCrawler {
 
 				@Override
 				public void iterate(Document doc) {
-
-					Element titleEle = doc.select(
-							".page-head h1 span:first-child").first();
-					String title = titleEle.text();
-					Element sourceEle = doc.select(
-							".ecommerce-actions a.ecommerce-btn-text").first();
-					String source = sourceEle.attr("href");
-					Music music = new Music(title, source);
+					
+					FieldGrabber grabber = new MusicFieldGrabber(doc);
+					
+					Music music = new Music(grabber.grabTitle(), grabber.grabSourceURL());
+					music.setArtist(grabber.grabArtist());
+					music.setDescription(grabber.grabDescription());
+					music.setPlayCount(grabber.grabPlayCount());
+					music.setOriginTags(grabber.grabOriginTags());
 					musicList.add(music);
 				}
 

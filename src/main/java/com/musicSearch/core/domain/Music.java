@@ -32,8 +32,11 @@ public class Music {
 	private List<Genre> genres;
 
 	@DBRef
-	private List<BulletComment> bulletTags;
+	private List<BulletComment> bulletComments;
 
+	
+	private List<String> originTags;
+	
 	private Long playCount;
 
 	// public Music(String id, String title, String sourceURL){
@@ -80,14 +83,19 @@ public class Music {
 		return artist;
 	}
 
-	public List<BulletComment> getBulletTags() {
-		return bulletTags;
+	public List<BulletComment> getBulletComments() {
+		return bulletComments;
 	}
 
 	public String getDescription() {
 		return description;
 	}
 
+	public List<String> getOriginTags() {
+		return originTags;
+	}
+	
+	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -120,8 +128,8 @@ public class Music {
 		this.genres = genres;
 	}
 
-	public void setBulletTags(List<BulletComment> bulletTags) {
-		this.bulletTags = bulletTags;
+	public void setBulletComments(List<BulletComment> bulletComments) {
+		this.bulletComments = bulletComments;
 	}
 
 	public void setPlayCount(Long playCount) {
@@ -138,5 +146,9 @@ public class Music {
 
 	public void setGenURL(String genURL) {
 		this.genURL = genURL;
+	}
+	
+	public void setOriginTags(List<String> originTags) {
+		this.originTags = originTags;
 	}
 }
