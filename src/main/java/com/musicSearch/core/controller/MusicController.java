@@ -52,23 +52,12 @@ public class MusicController {
 		return musicService.findAllMusic();
 	}
 
-<<<<<<< Updated upstream
-	@RequestMapping(value = "{id}/addComment/", method = RequestMethod.GET)
-	public String testComment(@PathVariable("id") String id) {
-		return id;
-	}	
 	
-	@RequestMapping(value = "{id}/addComment/", method = RequestMethod.POST, consumes = "application/json")
-	public String addComment(@PathVariable("id") String id,
-			@RequestBody @Valid BulletComment bulletComment) {
-		System.out.println(bulletComment);
-=======
+
 	@RequestMapping(value = "{id}/addComment/", method = RequestMethod.POST)
 	public void addComment(@PathVariable("id") String id,
 			@RequestBody  BulletComment bulletComment) {
->>>>>>> Stashed changes
 		musicService.saveBulletComment(id, bulletComment);
-		return "Save successfully";
 	}
 
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
