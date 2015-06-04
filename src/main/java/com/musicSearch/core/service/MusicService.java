@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 import com.musicSearch.core.domain.BulletComment;
 import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.domain.User;
+import com.musicSearch.core.repository.BulletCommentRepository;
 import com.musicSearch.core.repository.MusicRepository;
 
 @Service
 public class MusicService {
 
-	private final MusicRepository musicRepository;
+	@Autowired
+	private  MusicRepository musicRepository;
 
 	@Autowired
-	public MusicService(MusicRepository musicRepository) {
-		this.musicRepository = musicRepository;
-	}
+	private BulletCommentRepository bulletCommentRepository;
 
 	public Music save(Music music) {
 		return musicRepository.save(music);
@@ -33,6 +33,8 @@ public class MusicService {
 	public void saveBulletComment(String id, BulletComment bulletComment) {
 		Music music = musicRepository.findOne(id);
 		music.addBulletComment(bulletComment);
+		System.out.println(bulletComment.toString());
+		bulletCommentRepository.save(bulletComment);
 		musicRepository.save(music);
 	}
 

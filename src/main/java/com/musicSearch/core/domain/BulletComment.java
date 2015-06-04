@@ -10,15 +10,16 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.codehaus.jackson.*;
 import org.codehaus.jackson.annotate.JsonProperty;
-//@Document(collection = "bulletComment")
+
+@Document(collection = "bulletComment")
 public class BulletComment {
 
-	// @Id
+	@Id
 	private String id;
-	
-	private Long timeStamp;
 
-	// @DBRef
+	private String timeStamp;
+
+	@DBRef
 	private User user;
 
 	private String content;
@@ -31,11 +32,11 @@ public class BulletComment {
 		this.id = id;
 	}
 
-	public Long getTimeStamp() {
+	public String getTimeStamp() {
 		return timeStamp;
 	}
 
-	public void setTimeStamp(Long timeStamp) {
+	public void setTimeStamp(String timeStamp) {	
 		this.timeStamp = timeStamp;
 	}
 
@@ -55,17 +56,20 @@ public class BulletComment {
 		this.content = content;
 	}
 
-
-
 	public BulletComment() {
 		this.id = UUID.randomUUID().toString();
 	}
 
-	public BulletComment(Long timeStamp, User user, String content) {
+	public BulletComment(String timeStamp, User user, String content) {
 		this.id = UUID.randomUUID().toString();
 		this.timeStamp = timeStamp;
 		this.user = user;
 		this.content = content;
 	}
-	
+
+	@Override
+	public String toString() {
+		return this.id + " " + this.timeStamp + " " + this.user + " "
+				+ this.content;
+	}
 }
