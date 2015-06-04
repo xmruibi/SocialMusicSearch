@@ -20,4 +20,5 @@ public class ApplicationConfig {
 	public @Bean LoggingEventListener mongoEventListener() {
 		return new LoggingEventListener();
 	}
+	
 }

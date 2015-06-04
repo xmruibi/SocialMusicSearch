@@ -1,5 +1,6 @@
 package com.musicSearch.core.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -151,6 +152,12 @@ public class Music {
 	}
 
 	public void addBulletComment(BulletComment comment) {
-		this.getBulletComments().add(comment);
+		List<BulletComment> list;
+		if (this.getBulletComments() != null)
+			list = this.getBulletComments();
+		else
+			list = new ArrayList<BulletComment>();
+		list.add(comment);
+		this.setBulletComments(list);
 	}
 }

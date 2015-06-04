@@ -55,7 +55,15 @@ public class BulletComment {
 		this.content = content;
 	}
 
+<<<<<<< Updated upstream
 	public BulletComment(@JsonProperty("timeStamp") Long timeStamp,@JsonProperty("user") User user,@JsonProperty("content") String content) {
+=======
+	public BulletComment() {
+		this.id = UUID.randomUUID().toString();
+	}
+
+	public BulletComment(Long timeStamp, User user, String content) {
+>>>>>>> Stashed changes
 		this.id = UUID.randomUUID().toString();
 		this.timeStamp = timeStamp;
 		this.user = user;
