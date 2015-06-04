@@ -1,9 +1,12 @@
 package com.musicSearch.core.index.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+
+import com.musicSearch.core.domain.BulletComment;
 
 @Document(indexName = IndexedMusic.INDEX_NAME, type = IndexedMusic.TYPE_NAME)
 public class IndexedMusic implements Serializable {
@@ -15,11 +18,46 @@ public class IndexedMusic implements Serializable {
 	@Id
 	private String id;
 
-	private String commentContent;
+	private String title;
 
-	public IndexedMusic(String id, String commentContent) {
-		this.id = id;
-		this.commentContent = commentContent;
+	private String artist;
+
+	private String description;
+
+	private List<String> commentContents;
+
+	private List<BulletComment> bulletComments;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<String> getCommentContents() {
+		return commentContents;
+	}
+
+	public void setCommentContents(List<String> commentContents) {
+		this.commentContents = commentContents;
 	}
 
 	public String getId() {
@@ -30,11 +68,31 @@ public class IndexedMusic implements Serializable {
 		this.id = id;
 	}
 
-	public String getCommentContent() {
-		return commentContent;
+	public List<String> getCommentContent() {
+		return commentContents;
 	}
 
-	public void setCommentContent(String commentContent) {
-		this.commentContent = commentContent;
+	public void setCommentContent(List<String> commentContent) {
+		this.commentContents = commentContent;
 	}
+
+	public List<BulletComment> getBulletComments() {
+		return bulletComments;
+	}
+
+	public void setBulletComments(List<BulletComment> bulletComments) {
+		this.bulletComments = bulletComments;
+	}
+
+	public IndexedMusic(String id, String title, String artist,
+			String description, List<String> commentContents,
+			List<BulletComment> bulletComments) {
+		this.id = id;
+		this.title = title;
+		this.artist = artist;
+		this.description = description;
+		this.commentContents = commentContents;
+		this.bulletComments = bulletComments;
+	}
+
 }

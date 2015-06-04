@@ -12,16 +12,20 @@ import java.sql.Date;
 
 public interface MusicRepository extends MongoRepository<Music, String> {
 
-	@Query("{'title' : {$regex : ?0}}")
-	List<Music> findByTitleRegex(String title);
-		
-	@Query("{'artist' : {$regex : ?0}}")
-	List<Music> findByArtist(String artist);
 	
-	@Query("{'releaseDate' : {$lt : ?0}}")
-	List<Music> findByReleaseDateLessThan(Date releasedate);
 	
-	@Query("{'releaseDate' : {$gt : ?0}}")
-	List<Music> findByReleaseDate(Date releasedate);
+	
+	
+	// @Query("{'title' : {$regex : ?0}}")
+	// List<Music> findByTitleRegex(String title);
+	//
+	// @Query("{'artist' : {$regex : ?0}}")
+	// List<Music> findByArtist(String artist);
+	//
+	// @Query("{'releaseDate' : {$lt : ?0}}")
+	// List<Music> findByReleaseDateLessThan(Date releasedate);
+	//
+	// @Query("{'releaseDate' : {$gt : ?0}}")
+	// List<Music> findByReleaseDate(Date releasedate);
 	
 }

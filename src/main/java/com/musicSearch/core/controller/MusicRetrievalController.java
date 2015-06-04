@@ -10,25 +10,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.musicSearch.core.domain.Music;
-import com.musicSearch.core.service.MusicRetrievalService;
-import com.musicSearch.core.service.MusicService;
+import com.musicSearch.core.index.service.MusicAdvancedRetrievalService;
 
 @RestController
 @RequestMapping("/musics/search")
 public class MusicRetrievalController {
 	private static Logger LOGGER = Logger.getLogger(MusicRetrievalController.class);
 
-	private final MusicRetrievalService musicRetrievalService;
+	private final MusicAdvancedRetrievalService musicAdvancedRetrievalService;
 	
 	@Autowired
-	public MusicRetrievalController(MusicRetrievalService musicRetrievalService) {
-		this.musicRetrievalService = musicRetrievalService;
+	public MusicRetrievalController(MusicAdvancedRetrievalService musicAdvancedRetrievalService) {
+		this.musicAdvancedRetrievalService = musicAdvancedRetrievalService;
 	}
 	
-	@RequestMapping(value = "/title/{title}", method = RequestMethod.GET)
-	public List<Music> searchByTitle(@PathVariable("title") String title) {
-		return musicRetrievalService.findByTitle(title);
+	@RequestMapping(value = "{keyword}", method = RequestMethod.GET)
+	public List<Music> searchByKeyword(@PathVariable("keyword") String keyword) {
+		return musicAdvancedRetrievalService.findMusic(keyword);
+	}	
+	@RequestMapping(value = "/fuzz/{keyword}", method = RequestMethod.GET)
+	public List<Music> searchByFuzz(@PathVariable("keyword") String keyword) {
+		return musicAdvancedRetrievalService.findPrefix(keyword);
 	}
-	
-	
 }

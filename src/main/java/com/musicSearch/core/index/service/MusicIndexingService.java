@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.apache.log4j.Logger;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.client.Client;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class MusicIndexingService {
 
 	// experiment_1
 	public void bulkIndex(List<IndexedMusic> musicCollection) {
+		client.delete(new DeleteRequest("musics"));
 		logger.info("Indexing bulk request of " + musicCollection.size()
 				+ " documents");
 		BulkRequestBuilder bulkRequest = client.prepareBulk();

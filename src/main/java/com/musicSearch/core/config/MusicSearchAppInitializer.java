@@ -15,7 +15,7 @@ public class MusicSearchAppInitializer implements WebApplicationInitializer {
 			throws ServletException {
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
 		webApplicationContext.register(MongoDBConfig.class,
-				ApplicationConfig.class, 
+				ElasticSearchConfig.class, ApplicationConfig.class,
 				WebMVCConfig.class);
 
 		Dynamic dynamc = servletContext.addServlet("dispatcherServlet",

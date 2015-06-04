@@ -33,8 +33,7 @@ public class ElasticSearchQueryTest {
 	
 	@Test
 	public void queryTest() {
-		List<IndexedMusic> musics = new ArrayList<IndexedMusic>();
-		musics = advancedRetrievalService.findMusic("go");
-		
+		 advancedRetrievalService.findMusic("got");
+		 advancedRetrievalService.findPrefix("hip");	
 	}
 }

@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.musicSearch.core.domain.BulletComment;
 import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.service.MusicService;
 
@@ -45,19 +47,24 @@ public class MusicController {
 		return musicService.findById(id);
 	}
 
-	 @RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public List<Music> findAllMusic() {
 		return musicService.findAllMusic();
 	}
-	 
 
-	
-	 @ResponseStatus( value = HttpStatus.BAD_REQUEST )
-	 public class BadRequestException extends RuntimeException{
-	    //
-	 }
-	 @ResponseStatus( value = HttpStatus.NOT_FOUND )
-	 public class ResourceNotFoundException extends RuntimeException{
-	    //
-	 }
+	@RequestMapping(value = "/addComment/", method = RequestMethod.POST)
+	public void addComment(@RequestParam("id") String id,
+			@RequestBody @Valid BulletComment bulletComment) {
+		musicService.saveBulletComment(id, bulletComment);
+	}
+
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	public class BadRequestException extends RuntimeException {
+		//
+	}
+
+	@ResponseStatus(value = HttpStatus.NOT_FOUND)
+	public class ResourceNotFoundException extends RuntimeException {
+		//
+	}
 }

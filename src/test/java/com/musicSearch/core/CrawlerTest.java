@@ -36,7 +36,7 @@ public class CrawlerTest {
 		MusicCrawler.setDomain("http://www.last.fm");
 		MusicCrawler crawler = new MusicCrawler(
 				"http://www.last.fm/music/+free-music-downloads");
-		crawler.backtracking(1);
+		crawler.backtracking(20);
 		// crawler.backupToFile("links.txt");
 		crawler.crawlMusic();
 		musicService.saveAll(crawler.getMusicList());

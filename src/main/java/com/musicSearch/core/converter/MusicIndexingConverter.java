@@ -9,7 +9,9 @@ import com.musicSearch.core.index.domain.IndexedMusic;
 public class MusicIndexingConverter {
 
 	public static IndexedMusic convert(Music music) {
-		return new IndexedMusic(music.getId(), music.getTitle());
+		return new IndexedMusic(music.getId(), music.getTitle(),
+				music.getArtist(), music.getDescription(),
+				music.getOriginTags(), music.getBulletComments());
 	}
 
 	public static List<IndexedMusic> collectionConvert(List<Music> musics) {

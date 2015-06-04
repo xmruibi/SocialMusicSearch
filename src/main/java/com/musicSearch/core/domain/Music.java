@@ -34,9 +34,8 @@ public class Music {
 	@DBRef
 	private List<BulletComment> bulletComments;
 
-	
 	private List<String> originTags;
-	
+
 	private Long playCount;
 
 	// public Music(String id, String title, String sourceURL){
@@ -94,8 +93,7 @@ public class Music {
 	public List<String> getOriginTags() {
 		return originTags;
 	}
-	
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -147,8 +145,12 @@ public class Music {
 	public void setGenURL(String genURL) {
 		this.genURL = genURL;
 	}
-	
+
 	public void setOriginTags(List<String> originTags) {
 		this.originTags = originTags;
+	}
+
+	public void addBulletComment(BulletComment comment) {
+		this.getBulletComments().add(comment);
 	}
 }
