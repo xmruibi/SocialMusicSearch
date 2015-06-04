@@ -52,8 +52,8 @@ public class MusicController {
 		return musicService.findAllMusic();
 	}
 
-	@RequestMapping(value = "/addComment/", method = RequestMethod.POST)
-	public void addComment(@RequestParam("id") String id,
+	@RequestMapping(value = "{id}/addComment/", method = RequestMethod.POST)
+	public void addComment(@PathVariable("id") String id,
 			@RequestBody @Valid BulletComment bulletComment) {
 		musicService.saveBulletComment(id, bulletComment);
 	}

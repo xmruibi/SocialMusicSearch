@@ -26,10 +26,10 @@ public class MusicRetrievalController {
 	
 	@RequestMapping(value = "{keyword}", method = RequestMethod.GET)
 	public List<Music> searchByKeyword(@PathVariable("keyword") String keyword) {
-		return musicAdvancedRetrievalService.findMusic(keyword);
+		return musicAdvancedRetrievalService.findMultipleFields(keyword);
 	}	
-	@RequestMapping(value = "/fuzz/{keyword}", method = RequestMethod.GET)
-	public List<Music> searchByFuzz(@PathVariable("keyword") String keyword) {
+	@RequestMapping(value = "/prefix/{keyword}", method = RequestMethod.GET)
+	public List<Music> searchByPrefix(@PathVariable("keyword") String keyword) {
 		return musicAdvancedRetrievalService.findPrefix(keyword);
 	}
 }
