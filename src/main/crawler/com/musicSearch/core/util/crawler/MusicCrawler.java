@@ -74,7 +74,8 @@ public class MusicCrawler {
 	public void crawling(String url, DOMOperation operation) throws IOException {
 		Document doc = Jsoup.connect(url).get();
 		System.out.println("Connection");
-		operation.iterate(doc);
+		if (doc != null)
+			operation.iterate(doc);
 	}
 
 	public void backtracking(int limit) throws IOException {
