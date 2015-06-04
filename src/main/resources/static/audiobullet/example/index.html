@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Audio Danmaku Example</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../src/audiobullet.css">
+		<style>
+
+
+		</style>
+
+	</head>
+	<body>
+
+		<audio class="audio-bullet" preload="true">
+	  	<source src="Sleepmakeswaves - It's Dark, It's Cold, It's Winter.mp3">
+			<!-- <source src="http://www.alexkatz.me/codepen/music/interlude.ogg"> -->
+		</audio>
+		<form class="bullet-player" id="tagging">
+			<input type="text" class="bullet-input" />
+			<button class="bullet-add-btn">Add</button>
+			<div class="bullet-panel"></div>
+		</form>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="../src/audiobullet.js"></script>
+		
+		<script>
+
+
+
+
+
+			$(function(){
+
+
+				$('.audio-bullet').on('audio:timeUpdate', function(e, obj) {
+
+					// console.log(obj.currentTime);
+
+				})
+
+				$('.audio-bullet').on('bulletAdded', function(e, obj, board){
+
+					// $('pre').text(arr);
+					console.log(board);
+					
+				})
+
+				$('.audio-bullet').on('hasBullet', function(e, arr){
+
+					var $panel = $('.bullet-panel');
+					$panel.empty();
+
+					$.each(arr, function(){
+
+						var $bullet = $('<p class="bullet"></p>');
+						$bullet.text(this.uname + ": " + this.text);
+						$panel.append($bullet);
+					})
+					
+				})
+
+				$('.audio-bullet').on('audio:change', function() {
+					var $panel = $('.bullet-panel');
+					$panel.empty();
+				})
+
+				$('#tagging').on('submit', function(){
+
+					var uname = 'me';
+					var obj = {};
+					obj.uname = uname;
+					obj.text = $('input').val();
+
+					$('.audio-bullet').audiobullet('add', obj);
+					$('input').val("");
+					return false;
+
+				})
+
+
+
+			})
+
+
+		</script>
+
+
+	</body>
+</html>
+
+
+
+
+
+

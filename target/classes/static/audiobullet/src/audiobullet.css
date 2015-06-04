@@ -1,0 +1,98 @@
+/*
+	$blue: 2F9CD4;
+	$deep-blue: 006094;
+	$gray: E9EEF2;
+	$deep-gray: CDD5DA;
+*/
+
+
+.bullet-player{
+	position: relative;
+	width: 800px;
+	height: 60px;
+	/*margin: 50px auto auto auto;*/
+	margin: 0px auto;
+	/*background: #E9EEF2;*/
+	/*border: solid;*/
+}
+
+.play{background: url('http://www.alexkatz.me/codepen/images/play.png') ;}
+.pause{background: url('http://www.alexkatz.me/codepen/images/pause.png') ;}
+
+.play-btn{
+    height:60px; 
+    width: 60px;
+
+    border: none;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    float:left;
+    outline:none;
+    opacity: 0.1;
+}
+
+.bullet-anchor {
+	width: 2px;
+	background-color: rgb(241, 196, 15);
+	top: 0;
+	height: 100%;
+}
+
+
+
+.play-timeline{
+	position: relative;
+	width: 80%;
+	height: 10px;
+	margin-top: 25px;
+	float: left;
+	border-radius: 15px;
+	background: #CDD5DA;
+  
+}
+
+.play-timeline-passed {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 0;
+	background: #B5E374;
+	border-radius: 15px;
+}
+
+
+.play-runner{
+	z-index: 10;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	/*margin-top: 1px;*/
+	background: #72C02C;
+	transform: translate(-50%,-50%);
+}
+
+.time-panel, .total-time-panel {
+	margin-top: 20px;
+	float: left;
+	color: #CDD5DA;
+}
+
+.time-panel {
+	margin-right: 15px;
+	color: #2F9CD4;
+}
+.total-time-panel {
+	margin-left: 15px;
+}
+
+.bullet-form {
+	margin: 20px auto auto auto;
+	text-align: center;
+	width: 800px;
+}
+
+

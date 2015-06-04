@@ -1,0 +1,46 @@
+/* line 12, ../sass/main.scss */
+.headline {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+/* line 19, ../sass/main.scss */
+.music-widget .music-meta {
+  margin: 0px auto;
+  width: 800px;
+}
+
+/* line 27, ../sass/main.scss */
+.bullet-popover {
+  position: absolute;
+  opacity: 1;
+  height: 200%;
+  top: 100%;
+  font-size: 14px;
+  -webkit-transition: left 0.25s ease;
+  -moz-transition: left 0.25s ease;
+  -o-transition: left 0.25s ease;
+  transition: left 0.25s ease;
+  -webkit-transition: opacity, 0.25s ease;
+  -moz-transition: opacity, 0.25s ease;
+  -o-transition: opacity, 0.25s ease;
+  transition: opacity, 0.25s ease;
+}
+/* line 33, ../sass/main.scss */
+.bullet-popover:before {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 100%;
+  margin-right: 5px;
+  background-image: linear-gradient(rgba(241, 196, 15, 0.95), rgba(241, 196, 15, 0.1));
+}
+
+/* line 46, ../sass/main.scss */
+.bullet-popover-hide {
+  opacity: 0;
+  -webkit-transition: opacity, 0.25s ease;
+  -moz-transition: opacity, 0.25s ease;
+  -o-transition: opacity, 0.25s ease;
+  transition: opacity, 0.25s ease;
+}
