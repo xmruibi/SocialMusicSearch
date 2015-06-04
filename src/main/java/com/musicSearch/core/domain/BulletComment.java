@@ -3,17 +3,19 @@ package com.musicSearch.core.domain;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import org.codehaus.jackson.*;
+import org.codehaus.jackson.annotate.JsonProperty;
 //@Document(collection = "bulletComment")
 public class BulletComment {
 
 	// @Id
 	private String id;
-
+	
 	private Long timeStamp;
 
 	// @DBRef
@@ -53,11 +55,11 @@ public class BulletComment {
 		this.content = content;
 	}
 
-	public BulletComment(Long timeStamp, User user, String content) {
+	public BulletComment(@JsonProperty("timeStamp") Long timeStamp,@JsonProperty("user") User user,@JsonProperty("content") String content) {
 		this.id = UUID.randomUUID().toString();
 		this.timeStamp = timeStamp;
 		this.user = user;
 		this.content = content;
 	}
-
+	
 }
