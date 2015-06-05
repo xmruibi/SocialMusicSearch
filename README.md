@@ -28,15 +28,15 @@ AWS S3
 #### MongoDB  
 1. Install MongoDB
 2. Start MongoDB Service
-
+```
 	mongod
-
+```
 3. Check MongoDB status and access data 
-
+```
 	mongo
 	use musicSearch
 	db.music.stats()
-
+```
 
 #### Elastic Search Install
 
