@@ -9,15 +9,15 @@ Although the text information retrieval is very mature in current world, the med
 Angular.js
 
 #### Web Service:
-Spring-Boot App
+Spring-Boot App,
 Spring-REST API
 
 #### Non-sql Database 
-MongoDB
+MongoDB,
 Spring-data-Mongodb API
 
 #### Index Service
-ElasticSearch
+ElasticSearch,
 Spring-data-elasticsearch API
 
 #### Static Music Resource Storage
