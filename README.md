@@ -52,8 +52,8 @@ AWS S3
 ```
 3. Check port by localhost:9200
 
-4. if cluster name is not "elasticsearch", please check issue #1
-	[https://github.com/xmruibi/CollaborativeMusicSearch/issues/4]
+4. if cluster name is not "elasticsearch", please check [issue #1][1]
+	[1]:https://github.com/xmruibi/CollaborativeMusicSearch/issues/4
 
 ### Iteration #1 -- May 27th - Jun 4th, 2015
 
