@@ -9,6 +9,11 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Music Object
+ * @author ruibi
+ *
+ */
 @Document(collection = "music")
 public class Music {
 	@Id
@@ -19,9 +24,9 @@ public class Music {
 
 	private Long playTime;
 
-	private String genURL;
+	private String genURL; // for browser uri
 
-	private String sourceURL;
+	private String sourceURL; // for the source target
 
 	private String artist;
 

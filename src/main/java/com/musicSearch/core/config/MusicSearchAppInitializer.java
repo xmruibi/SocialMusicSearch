@@ -8,12 +8,17 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+/**
+ * Configuration classes initialization 
+ * @author ruibi
+ */
 public class MusicSearchAppInitializer implements WebApplicationInitializer {
 
 	@Override
 	public void onStartup(ServletContext servletContext)
 			throws ServletException {
 		AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
+		// register all your configuration classes here!
 		webApplicationContext.register(MongoDBConfig.class,
 				ElasticSearchConfig.class, ApplicationConfig.class,
 				WebMVCConfig.class);

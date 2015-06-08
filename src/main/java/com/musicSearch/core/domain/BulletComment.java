@@ -1,16 +1,16 @@
 package com.musicSearch.core.domain;
 
-import java.util.Date;
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.codehaus.jackson.*;
-import org.codehaus.jackson.annotate.JsonProperty;
 
+/**
+ * Bullet Comment Object 
+ * @author ruibi
+ *
+ */
 @Document(collection = "bulletComment")
 public class BulletComment {
 
@@ -19,7 +19,7 @@ public class BulletComment {
 
 	private String timeStamp;
 
-	@DBRef
+	@DBRef // need to annotate for other object (collection)
 	private User user;
 
 	private String content;

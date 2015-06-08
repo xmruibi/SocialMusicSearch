@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.index.service.MusicAdvancedRetrievalService;
 
+/**
+ * This is controller is under the url-"domainname.com/music/search"
+ * for doing some advanced retrieval search 
+ * @author ruibi
+ */
 @RestController
 @RequestMapping("/musics/search")
 public class MusicRetrievalController {

@@ -1,21 +1,19 @@
 package com.musicSearch.core.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
-
-
 import com.musicSearch.core.domain.Music;
 
 import java.lang.String;
-import java.util.List;
-import java.sql.Date;
 
+/**
+ * The interface for music CRUD ops
+ * NOTE: extends MongoRepository interface
+ * @see MongoRepository 
+ * @author ruibi
+ *
+ */
 public interface MusicRepository extends MongoRepository<Music, String> {
-
-	
-	
-	
-	
+		
 	// @Query("{'title' : {$regex : ?0}}")
 	// List<Music> findByTitleRegex(String title);
 	//

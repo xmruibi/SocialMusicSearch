@@ -8,6 +8,11 @@ import org.springframework.data.elasticsearch.annotations.Document;
 
 import com.musicSearch.core.domain.BulletComment;
 
+/**
+ * This music object for indexing
+ * @author ruibi
+ *
+ */
 @Document(indexName = IndexedMusic.INDEX_NAME, type = IndexedMusic.TYPE_NAME)
 public class IndexedMusic implements Serializable {
 

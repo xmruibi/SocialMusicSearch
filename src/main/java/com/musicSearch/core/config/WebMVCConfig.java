@@ -9,6 +9,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import com.musicSearch.core.domain.Music;
 
+/**
+ * Set up static resource path
+ * @author ruibi
+ *
+ */
 @Configuration
 public class WebMVCConfig extends WebMvcConfigurerAdapter {
 	@Override

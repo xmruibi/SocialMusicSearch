@@ -1,8 +1,5 @@
 package com.musicSearch.core.config;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +14,11 @@ import com.mongodb.WriteConcern;
 import com.musicSearch.core.repository.RepositoryPackage;
 import com.musicSearch.core.service.ServicePackage;
 
+/**
+ * Mongo DB Configuration: 
+ * Set Mongo DB client address and port
+ * @author ruibi
+ */
 @Configuration
 @ComponentScan(basePackageClasses = ServicePackage.class)
 @EnableMongoRepositories(basePackageClasses=RepositoryPackage.class)
@@ -40,7 +42,6 @@ public class MongoDBConfig extends AbstractMongoConfiguration {
 
 	@Override
 	protected String getMappingBasePackage() {
-		// TODO Auto-generated method stub
 		return "com.musicSearch.core.domain";
 	}
 	

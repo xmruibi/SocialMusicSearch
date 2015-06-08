@@ -10,6 +10,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ * @author JiayuLiu
+ *
+ */
 @Component
 public class SimpleCORSFilter implements Filter {
 

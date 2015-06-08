@@ -6,6 +6,11 @@ import java.util.List;
 import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.index.domain.IndexedMusic;
 
+/**
+ * This is utility class for convert music object from mongodb to indexing music in elasticsearch by indexedmuisc objecy
+ * @author ruibi
+ *
+ */
 public class MusicIndexingConverter {
 
 	public static IndexedMusic convert(Music music) {

@@ -18,6 +18,11 @@ import org.springframework.stereotype.Service;
 import com.musicSearch.core.domain.Music;
 import com.musicSearch.core.repository.MusicRepository;
 
+/**
+ * Retrieval Services on Elastic Search 
+ * @author ruibi
+ *
+ */
 @Service
 public class MusicAdvancedRetrievalService {
 
@@ -25,8 +30,13 @@ public class MusicAdvancedRetrievalService {
 	MusicRepository musicRepository;
 
 	@Autowired
-	private Client client;
+	private Client client; // need to initial elastic search client
 
+	/**
+	 * This is keyword search method in comment contents field in music object
+	 * @param keyword
+	 * @return
+	 */
 	public List<Music> findMusic(String keyword) {
 		QueryBuilder matchquery = QueryBuilders.fuzzyLikeThisFieldQuery(
 				"commentContents").likeText(keyword);
@@ -42,6 +52,12 @@ public class MusicAdvancedRetrievalService {
 		return (List<Music>) musicRepository.findAll(musicIdsList);
 	}
 
+	/**
+	 * This prefix search in multiple fields in music object
+	 * this method is for the user auto suggestion 
+	 * @param prefix
+	 * @return
+	 */
 	public List<Music> findPrefix(String prefix) {
 		QueryBuilder matchquery = QueryBuilders.multiMatchQuery(prefix,
 				"title", "artist", "description", "commentContents",
@@ -59,6 +75,11 @@ public class MusicAdvancedRetrievalService {
 		return (List<Music>) musicRepository.findAll(musicIdsList);
 	}
 
+	/**
+	 * This keyword match in multiple fields in music object
+	 * @param keyword
+	 * @return
+	 */
 	public List<Music> findMultipleFields(String keyword) {
 		QueryBuilder matchquery = QueryBuilders.multiMatchQuery(keyword,
 				"title", "artist", "description", "commentContents",
