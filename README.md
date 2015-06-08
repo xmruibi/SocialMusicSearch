@@ -1,8 +1,8 @@
 
-# CollaborativeMusicSearch
+# SocialMusicSearch
 
 ### Brief Intro
-Although the text information retrieval is very mature in current world, the media files are still hard to be annotated and retrieved. The problem is lacking of the sementic analysis on this media file. Here, we come up with an innovative thinking on music search engine with collaborative dynamic bullet comments techniques. The bullet comment is a kind of comment added on each frame of the media file. Those bullet comments releases user's sentimental infomation on a certain song or song's segment. According to these comment, we not only can set up profile on each song, but also on those song's specific segment. 
+Although the text information retrieval is very mature in current world, the media files are still hard to be annotated and retrieved. The problem is media files are lacking of the sementic sentimental elements. Here, we come up with an innovative thinking on music search engine with live comments (bullet comments) techniques. The live comment is a kind of comment added on each frame of the media file. Those bullet comments releases user's sentimental infomation on a certain song or song's segment. According to these comment, we not only can set up profile on each song, but also on those song's specific segment. 
 
 ### Techniques
 #### Front End
