@@ -2,7 +2,7 @@
 # SocialMusicSearch
 
 ### Brief Intro
-Although the text information retrieval is very mature in current world, the media files are still hard to be annotated and retrieved. The problem is media files are lacking of the sementic sentimental elements. Here, we come up with an innovative thinking on music search engine with live comments (bullet comments) techniques. The live comment is a kind of comment added on each frame of the media file. Those bullet comments releases user's sentimental infomation on a certain song or song's segment. According to these comment, we not only can set up profile on each song, but also on those song's specific segment. 
+Although the text information retrieval is very mature in current world, the media files are still hard to be annotated and retrieved. The problem is media files are lacking of the sementic sentimental elements. Here, we come up with an innovative thinking on music search engine with live comments (bullet comments) techniques. The idea of live comment is derives from Janpanses Video site - Niconico.com. Users can upload, view and share video clips. Unlike other video sharing sites, however, comments are overlaid directly onto the video, synced to a specific playback time. In this project, we use live comment is a kind of comment added on each frame of the music file. Those bullet comments releases user's sentimental infomation on a certain song or song's segment. According to these comments, we not only can set up profile on each song, but also on those song's specific segment. 
 
 ### Techniques
 #### Front End
@@ -55,45 +55,62 @@ AWS S3
 4. if cluster name is not "elasticsearch", please check issue #1:
 	https://github.com/xmruibi/CollaborativeMusicSearch/issues/4
 
-### Iteration #1 -- May 27th - Jun 4th, 2015
 
-#### Data Crawler - source come from last.fm
+### Framework & Package Design:
 
-Music Metadata - Store in MongoDB which is on AWS EC2;
+##### Spring Boot App - 
+Maven plugin: bootstrap without web.xml;
 
-Music .mp3 file - Store in AWS S3;
+Bootstrap Main function: MusicSearchApplication;
 
-** optional senario: MapReduce Crawler; Periodically Update; 
+Spring Configuration - config package: ApplicationConfig, WebMVCConfig, ApplicationInitializer;
+
+##### Spring-Data-MongoDB 
+config: MongoDBConfig;
+
+repository;
+
+domain;
+
+##### Spring-Data-REST
+config: ApplicationConfig;
+
+service;
+
+controller;
+
+##### Spring-Data-ElasticSearch 
+config: ElasticSearchConfig;
+
+index.repository;
+
+index.domain;
 
 
-#### Framework Set Up:
+### Dataflow Design:
+#### In Flow: 
+ Data Crawler - source come from last.fm
 
-Spring Boot - Web Service;
+ Music Metadata - Store in MongoDB which is on AWS EC2;
 
-Spring-Data-MongoDB repository, domain;
+ Music file - Store in AWS S3;
 
-Spring-Data-REST service, controller;
-
-Spring-Data-ElasticSearch indexedrepository, index.domain
-
-### Dataflow:
-
-In: 
+** optional senario: MapReduce Crawler; Periodically Update;
 
     Crawler -> Music Info -> MongoDB 
             -> Music Sourcce ->  AWS S3 
             -> Music Comment -> ElasticSearch Indexing 
 
-Out:
+#### Out Flow:
 
     Basic CRUD -> MongoDB repository
     Basic Retrieval -> MongoDB repository
-    Advanced Retrieval -> ElasticSearch Index -> TFIDF ranking/customized ranking algorithms -> Music ID -> Search in MongoDB 
+    Advanced Retrieval -> ElasticSearch Index  
     
 
 
 
-#### Test Framework
+### Test Framework
 
 - JUnit
 
