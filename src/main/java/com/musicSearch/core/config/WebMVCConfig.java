@@ -18,6 +18,7 @@ import com.musicSearch.core.domain.Music;
 public class WebMVCConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/static").setViewName("forward:/index.html");
+		registry.addViewController("/static")
+				.setViewName("forward:/index.html");
 	}
 }
