@@ -98,7 +98,7 @@
 
 	<profiles>
 		<profile>
-			<id>musicSearch</id>
+			<id>webapp</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
 			</activation>
