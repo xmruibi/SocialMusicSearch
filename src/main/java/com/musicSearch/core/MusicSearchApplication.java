@@ -15,23 +15,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.musicSearch.core.config.*;
 
-
 /**
- *  Main entrance for Spring Boot App
+ * Main entrance for Spring Boot App
+ * 
  * @author ruibi
  *
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-@Import(RepositoryRestMvcConfiguration.class)
+@Import({ MongoDBConfig.class, ElasticSearchConfig.class,
+		ApplicationConfig.class, WebMVCConfig.class,
+		RepositoryRestMvcConfiguration.class })
 public class MusicSearchApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MusicSearchApplication.class, args);
 	}
 
-	@RequestMapping(value = "/status", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	String status() {
-		return "{\"state\": \"running\"}";
+	@Override
+	protected SpringApplicationBuilder configure(
+			SpringApplicationBuilder application) {
+		return application.sources(MusicSearchApplication.class);
 	}
+
+	// @RequestMapping(value = "/status", method = RequestMethod.GET, produces =
+	// MediaType.APPLICATION_JSON_VALUE)
+	// String status() {
+	// return "{\"state\": \"running\"}";
+	// }
 }
