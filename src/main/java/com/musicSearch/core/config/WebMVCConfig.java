@@ -15,6 +15,7 @@ import com.musicSearch.core.domain.Music;
  *
  */
 @Configuration
+@ComponentScan({"com.musicSearch.core.controller","com.musicSearch.core.service","com.musicSearch.core.domain"})
 public class WebMVCConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {

@@ -21,7 +21,7 @@ import com.musicSearch.core.config.*;
  * @author ruibi
  *
  */
-@SpringBootApplication
+@Configuration
 @EnableAutoConfiguration
 @Import({ MongoDBConfig.class, ElasticSearchConfig.class,
 		ApplicationConfig.class, WebMVCConfig.class,
