@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.event.LoggingEventListener;
  * @author ruibi
  */
 @Configuration
-@SpringBootApplication
 @PropertySource("classpath:application.properties")
 public class ApplicationConfig {
 	public @Bean LoggingEventListener mongoEventListener() {
