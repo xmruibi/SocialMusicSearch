@@ -6,7 +6,7 @@
 	<groupId>com.musicSearch</groupId>
 	<artifactId>musicService-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>${packaging.type}</packaging>
 
 	<name>Music Search</name>
 	<description>Collaborative Music Search Engine</description>
@@ -73,13 +73,34 @@
 
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+	
+    <profiles>
+    	 <profile>
+            <id>musicSearch</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <packaging.type>war</packaging.type>
+            </properties>
+        </profile>
+    	 <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <packaging.type>jar</packaging.type>
+            </properties>
+            <build>
+            	<plugins>
+		        	<plugin>
+		                <groupId>org.springframework.boot</groupId>
+		                <artifactId>spring-boot-maven-plugin</artifactId>
+		            </plugin>
+            	</plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
