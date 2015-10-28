@@ -116,7 +116,7 @@ Spring-Data-ElasticSearch
 - config: ElasticSearchConfig; (port:9300)
 - index.repository;
 - index.domain: Indexed Music;
-- 
+
 ## Dataflow Design:
 ### In Flow: 
  Data Crawler - source come from last.fm
